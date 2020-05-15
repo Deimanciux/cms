@@ -1,10 +1,12 @@
 $(document).ready(function () {
+    if($('#body').length) {
+        ClassicEditor
+            .create( document.querySelector( '#body' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    }
     //EDITOR CODE
-    ClassicEditor
-        .create( document.querySelector( '#body' ) )
-        .catch( error => {
-            console.error( error );
-        } );
     //REST OF THE CODE
     $('#selectAllBoxes').click(function(event){
         if(this.checked) {
