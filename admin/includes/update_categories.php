@@ -19,11 +19,16 @@
         <?php //update category
         if(isset($_POST['update_category'])){
             $the_cat_title = $_POST['cat_title'];
-            $query = "UPDATE categories SET cat_title = '{$the_cat_title}' WHERE cat_id = '{$cat_id}'";
-            $update_query = mysqli_query($connection, $query);
-            if(!$update_query){
-                die('Query sent failed' . mysqli_error($connection));
+
+            $stmt = mysqli_prepare($connection, "UPDATE categories SET cat_title = ? WHERE cat_id = ?");
+            mysqli_stmt_bind_param($stmt, "si", $the_cat_title, $cat_id);
+            mysqli_stmt_execute($stmt);
+
+            if(!$stmt){
+                die('Unexpected error');
             }
+            mysqli_stmt_close($stmt);
+            redirect("categories.php");
         }
         ?>
 
