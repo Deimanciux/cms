@@ -1,0 +1,11 @@
+Options -MultiViews
+RewriteEngine on
+#nc nesvarbu didziosiomis ar mazosiomis, prides galune pats
+RewriteRule ^(index|contact|registration)$ $1.php [NC,L]
+
+#d - digit, kad atitiktu bet koki skaiciu
+RewriteRule ^post/(\d+)$ post.php?p_id=$1 [NC,L]
+
+RewriteRule ^category/(\d+)$ category.php?category=$1 [NC,L]
+
+
