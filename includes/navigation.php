@@ -1,7 +1,5 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -11,8 +9,6 @@
             </button>
             <a class="navbar-brand" href="/cms">CMS front</a>
         </div>
-
-
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -28,7 +24,7 @@
                    $registration_class = '';
                    $contact_class = '';
 
-                   //parodys kokiame esame puslapyje
+                   //shows name of page
                    $pageName = basename($_SERVER{'PHP_SELF'});
                    $registration = 'registration.php';
                    $contact ='contact.php';
@@ -52,14 +48,14 @@
                 <?php if(!isset($_SESSION['username'])) { ?>
 
                 <li class="<?php echo $registration_class;?>">
-                    <a href="/cms/registration">Registration</a>
+                    <a href = "/cms/registration">Registration</a>
                 </li>
                 <?php } ?>
-                <li class="<?php echo $contact_class;?>">
-                    <a href="/cms/contact">Contact</a>
+                <li class = "<?php echo $contact_class;?>">
+                    <a href = "/cms/contact">Contact</a>
                 </li>
                 <?php
-                if(isset($_SESSION['user_role']) && $_SESSION['user_role']=='admin'){
+                if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin'){
 
                     if(isset($_GET['p_id'])){
 

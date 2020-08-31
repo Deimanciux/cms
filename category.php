@@ -41,28 +41,31 @@
                 mysqli_stmt_store_result($stmt);
 
             if(mysqli_stmt_num_rows($stmt) != 0){
-           /* var_dump(mysqli_stmt_num_rows($stmt));
-            die();
-*/
+
             while($row = mysqli_stmt_fetch($stmt)):
 
                 ?>
-                <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
-                </h1>
+
                 <h2>
-                    <a href="post.php?p_id=<?php echo $post_id;?>"><?php echo $post_title ?></a>
+                    <a href="../post/<?php echo $post_id;?>"><?php echo $post_title ?></a>
                 </h2>
                 <p class="lead">
                     by <a href="index.php"><?php echo $post_user; ?></a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date ?></p>
                 <hr>
-                <img class="img-responsive" src="/cms/images/<?php echo $post_image; ?>" alt="">
+                <a href="../post/<?php echo $post_id;?>">
+                    <img class="img-responsive" src="../images/<?php echo $post_image; ?>" alt="">
+                </a>
+
                 <hr>
+
+                <?php if(strlen($post_content) >= 100) {
+                    $post_content = substr($post_content, 0, 100) . "...";
+                } ?>
+
                 <p><?php echo $post_content ?></p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" href="../post/<?php echo $post_id;?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <hr>
            <!--nebutinas dalykas mysqli_stmt_close, nes pats php ta padaro-->
             <?php endwhile; mysqli_stmt_close($stmt);

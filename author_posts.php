@@ -20,8 +20,11 @@
             }
 
             $query = "SELECT * FROM posts WHERE post_user = '{$the_post_user}' ORDER BY post_date DESC";
-            $select_all_posts_query = mysqli_query($connection, $query);
+            $select_all_posts_query = mysqli_query($connection, $query); ?>
 
+            <h1 class="page-header">All posts by <?php echo $the_post_user ?></h1>
+
+            <?php
             while($row = mysqli_fetch_assoc($select_all_posts_query)){
                 $post_title =  $row['post_title'];
                 $post_user =  $row['post_user'];
@@ -29,17 +32,11 @@
                 $post_image =  $row['post_image'];
                 $post_content =  $row['post_content'];
                 ?>
-                <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
-                </h1>
 
-                <!-- First Blog Post -->
                 <h2>
                     <a href="#"><?php echo $post_title; ?></a>
                 </h2>
-                <p class="lead">All posts by <?php echo $post_user ?>
-                </p>
+
                 <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date ?></p>
                 <hr>
                 <img class="img-responsive" src="images/<?php echo $post_image ?>" alt="">

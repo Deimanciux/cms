@@ -41,20 +41,14 @@
                 $post_image =  $row['post_image'];
                 $post_content =  $row['post_content'];
                 ?>
-                <h1 class="page-header">
-                    Post
-                </h1>
 
-                <!-- First Blog Post -->
-                <h2>
-                    <a href="#"><?php echo $post_title; ?></a>
-                </h2>
+                <h2> <?php echo $post_title; ?> </h2>
                 <p class="lead">
-                    by <a href="author_posts.php?user=<?php echo $post_user;?>&p_id=<?php echo $the_post_id;?>"><?php echo $post_user ?></a>
+                    by <a href="../author_posts.php?user=<?php echo $post_user;?>&p_id=<?php echo $the_post_id;?>"><?php echo $post_user ?></a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date ?></p>
                 <hr>
-                <img class="img-responsive" src="images/<?php echo $post_image ?>" alt="">
+                <img class="img-responsive" src="../images/<?php echo $post_image ?>" alt="">
                 <hr>
                 <p><?php echo $post_content ?></p>
                 <hr>

@@ -11,7 +11,7 @@
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
-        <!--<li><a href="">Users online: <?php echo usersOnline(); ?></a></li> -->
+        <!--<li><a href="">Users online: <?php/* echo usersOnline(); */?></a></li> -->
 
         <li><a href="">Users online:<span class="usersonline"></span></a></li>
         <li><a href="../index.php">Home site</a></li>

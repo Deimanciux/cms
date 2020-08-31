@@ -19,9 +19,9 @@ if(isset($_POST['create_post'])){
 
     confirmQuery($create_post_query);
 
-    //paimamas paskutinis id
-    $the_post_id=mysqli_insert_id($connection);
-    echo "<p class='bg-success'>Post Created. <a href='../post.php?p_id={$the_post_id}'>View Post</a> or <a href='posts.php?source=add_post'>Add More Posts</a></p>";
+    //message that post was created
+    $the_post_id = mysqli_insert_id($connection);
+    echo "<p class='bg-success'>Post Created. <a href='../post/$the_post_id'>View Post</a> or <a href='posts.php?source=add_post'>Add More Posts</a></p>";
 }
 ?>
 <form action="" method="post" enctype="multipart/form-data">

@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="837c9bc6-8b96-4082-9ee5-4e1b4e7cddfd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/includes/add_post.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/add_post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/includes/admin_navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/admin_navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/includes/edit_post.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/edit_post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/author_posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/author_posts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index_old.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/post.php" beforeDir="false" afterPath="$PROJECT_DIR$/post.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +34,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/../../php" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="1XD7LyETfXvqQtf0YOdwItdFjKr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -37,7 +50,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../php" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -116,6 +130,18 @@
       <workItem from="1589469284085" duration="2490000" />
       <workItem from="1589493873814" duration="1286000" />
       <workItem from="1589573150469" duration="7391000" />
+      <workItem from="1590328395784" duration="4493000" />
+      <workItem from="1590494635401" duration="716000" />
+      <workItem from="1590594548048" duration="1231000" />
+      <workItem from="1590671731782" duration="1546000" />
+      <workItem from="1591306968254" duration="653000" />
+      <workItem from="1592558576422" duration="2458000" />
+      <workItem from="1592771771728" duration="652000" />
+      <workItem from="1592849884869" duration="4567000" />
+      <workItem from="1592902075864" duration="948000" />
+      <workItem from="1592904675382" duration="1415000" />
+      <workItem from="1593114087073" duration="597000" />
+      <workItem from="1598867781246" duration="9537000" />
     </task>
     <servers />
   </component>
@@ -123,23 +149,44 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1220" y="276" key="FileChooserDialogImpl" timestamp="1587588724364">
+    <state x="1024" y="179" key="#CLI_Interpreters" timestamp="1592560080166">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1220" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587588724364" />
+    <state x="1024" y="179" key="#CLI_Interpreters/0.0.1920.1040@0.0.1920.1040" timestamp="1592560080166" />
+    <state x="1151" y="115" key="#PHP" timestamp="1592560082521">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1151" y="115" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1592560082521" />
+    <state x="828" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592559299664">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="828" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592559299664" />
+    <state x="1220" y="276" key="FileChooserDialogImpl" timestamp="1592560078590">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1220" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590494719996" />
+    <state x="1220" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592560078590" />
     <state x="1274" y="444" key="NewPhpFileDialog" timestamp="1586250185771">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1274" y="444" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586250185771" />
-    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1589573365997">
+    <state x="922" y="167" key="SettingsEditor" timestamp="1592559730866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588160595178" />
-    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589573365997" />
-    <state x="1053" y="178" width="737" height="804" key="find.popup" timestamp="1589582762120">
+    <state x="922" y="167" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592559730866" />
+    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1592904793590">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1053" y="178" width="737" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589582762120" />
+    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590494638022" />
+    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592904793590" />
+    <state x="1053" y="178" width="737" height="804" key="find.popup" timestamp="1592855948715">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1053" y="178" width="737" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592855948715" />
+    <state x="1252" y="251" key="ftp.server.browser" timestamp="1592908021038">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1252" y="251" key="ftp.server.browser/0.0.1920.1040@0.0.1920.1040" timestamp="1592908021038" />
     <state x="1096" y="242" key="run.anything.popup" timestamp="1589472117709">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

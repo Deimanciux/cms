@@ -2,6 +2,30 @@
 function redirect($location)
 {
     return header("Location:". $location);
+    exit;
+}
+
+function ifItIsMethod($method=null)
+{
+    if($_SERVER['REQUEST_METHOD'] == strupper($method)){
+        return true;
+    }
+    return false;
+}
+
+function isLoggedIn()
+{
+    if(isset($_SESSION['user_role'])){
+        return true;
+    }
+    return false;
+}
+
+function checkIfUserIsLoggedInAndRedirect($redirectLocation = null)
+{
+    if(isLoggedIn()){
+        redirect($redirectLocation);
+    }
 }
 
 function escape($string) {
@@ -21,6 +45,7 @@ function confirmQuery($result): void
 
 function insertCategories(): void
 {
+    $stmt = null;
     global $connection;
     if (isset($_POST['submit'])) {
         $cat_title = $_POST['cat_title'];
@@ -34,9 +59,10 @@ function insertCategories(): void
             if (!$stmt) {
                 die('Query sent failed' . mysqli_error());
             }
+            mysqli_stmt_close($stmt);
         }
     }
-    mysqli_stmt_close($stmt);
+
 }
 
 function findAllCategories(): void
@@ -205,7 +231,7 @@ function login_user($username, $password){
     }
 
     while ($row = mysqli_fetch_assoc($select_user_query)) {
-        $db_user_id = $row['user_id'];
+       // $db_user_id = $row['user_id'];
         $db_username = $row['username'];
         $db_user_password = $row['user_password'];
         $db_user_firstname = $row['user_firstname'];
