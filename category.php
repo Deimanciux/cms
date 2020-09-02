@@ -18,10 +18,10 @@
 
                 if(isset($_SESSION['username']) && is_admin($_SESSION['username'])){
 
-                    $stmt1 = mysqli_prepare($connection, "SELECT post_id, post_title, post_user, post_date, post_image, post_content FROM posts WHERE post_category_id = ?/*ORDER BY post_id DESC*/");
+                    $stmt1 = mysqli_prepare($connection, "SELECT post_id, post_title, post_user, post_date, post_image, post_content FROM posts WHERE post_category_id = ? ORDER BY post_id DESC");
 
                 } else {
-                    $stmt2 = mysqli_prepare($connection, "SELECT post_id, post_title, post_user, post_date, post_image, post_content FROM posts WHERE post_category_id = ? AND post_status= ?/*ORDER BY post_id DESC*/");
+                    $stmt2 = mysqli_prepare($connection, "SELECT post_id, post_title, post_user, post_date, post_image, post_content FROM posts WHERE post_category_id = ? AND post_status= ? ORDER BY post_id DESC");
                     $published = 'published';
                 }
 
@@ -54,8 +54,8 @@
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date ?></p>
                 <hr>
-                <a href="../post/<?php echo $post_id;?>">
-                    <img class="img-responsive" src="../images/<?php echo $post_image; ?>" alt="">
+                <a href="post/<?php echo $post_id;?>">
+                    <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
                 </a>
 
                 <hr>

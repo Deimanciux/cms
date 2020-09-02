@@ -29,3 +29,4 @@
 </head>
 
 <body>
+<?php  include "admin/functions.php"; ?>

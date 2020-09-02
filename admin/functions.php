@@ -1,13 +1,13 @@
 <?php
 function redirect($location)
 {
-    return header("Location:". $location);
+    header("Location:". $location);
     exit;
 }
 
-function ifItIsMethod($method=null)
+function ifItIsMethod($method =  null)
 {
-    if($_SERVER['REQUEST_METHOD'] == strupper($method)){
+    if($_SERVER['REQUEST_METHOD'] == strtoupper($method)) {
         return true;
     }
     return false;
@@ -15,7 +15,7 @@ function ifItIsMethod($method=null)
 
 function isLoggedIn()
 {
-    if(isset($_SESSION['user_role'])){
+    if(isset($_SESSION['user_role'])) {
         return true;
     }
     return false;
@@ -99,7 +99,6 @@ function usersOnline(): void
     global $connection;
     if(isset($_GET['onlineusers'])) {
 
-
         if(!$connection) {
             session_start();
             include("../includes/db.php");
@@ -110,6 +109,7 @@ function usersOnline(): void
 
             $query = "SELECT * FROM users_online WHERE session = '$session'";
             $send_query = mysqli_query($connection, $query);
+            confirmQuery($send_query);
             $count = mysqli_num_rows($send_query);
 
                 if ($count == NULL) {
@@ -121,7 +121,6 @@ function usersOnline(): void
             $count_user = mysqli_num_rows($users_online_query);
             echo $count_user;
         }
-
     }
 }
 usersOnline();
@@ -181,11 +180,11 @@ function email_exists($email)
 {
     global $connection;
 
-    $query = "SELECT email FROM users WHERE email = '$email'";
+    $query = "SELECT user_email FROM users WHERE user_email = '$email'";
     $result = mysqli_query($connection, $query);
     confirmQuery($result);
 
-    if(mysqli_num_rows($result)>0)
+    if(mysqli_num_rows($result) > 0)
     {
         return true;
     } else {
@@ -237,17 +236,18 @@ function login_user($username, $password){
         $db_user_firstname = $row['user_firstname'];
         $db_user_lastname = $row['user_lastname'];
         $db_user_role = $row['user_role'];
+
+        if (password_verify($password, $db_user_password)) {
+
+            $_SESSION['username'] = $db_username;
+            $_SESSION['firstname'] = $db_user_firstname;
+            $_SESSION['lastname'] = $db_user_lastname;
+            $_SESSION['user_role'] = $db_user_role;
+
+            redirect('/cms/admin');
+        } else {
+            return false;
+        }
     }
-
-    if (password_verify($password, $db_user_password)) {
-
-        $_SESSION['username'] = $db_username;
-        $_SESSION['firstname'] = $db_user_firstname;
-        $_SESSION['lastname'] = $db_user_lastname;
-        $_SESSION['user_role'] = $db_user_role;
-
-        redirect('/cms/admin');
-    } else {
-        redirect('/cms/index.php');
-    }
+    return true;
 }

@@ -140,10 +140,8 @@
 
         echo "<td><a href='post_comment.php?id=$post_id'>$count_comments</a></td>";
 
-
-
         echo "<td>$post_date</td>";
-        echo "<td><a class='btn btn-primary' href='../post.php?p_id={$post_id}'>View Post</a></td>";
+        echo "<td><a class='btn btn-primary' href='../post/$post_id'>View Post</a></td>";
         echo "<td><a href='posts.php?publish={$post_id}'>Publish</a></td>";
         echo "<td><a href='posts.php?draft={$post_id}'>Draft</a></td>";
         echo "<td><a class='btn btn-info' href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a></td>";

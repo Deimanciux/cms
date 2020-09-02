@@ -1,52 +1,5 @@
 <?php include "includes/admin_header.php" ?>
 
-<?php
-if(isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
-    $query= "SELECT * FROM users WHERE username ='{$username}'";
-    $select_user_profile_query = mysqli_query($connection, $query);
-    while($row = mysqli_fetch_assoc($select_user_profile_query)){
-        $user_id = $row['user_id'];
-
-        $username = $row['username'];
-        $user_password = $row['user_password'];
-        $user_firstname = $row['user_firstname'];
-        $user_lastname = $row['user_lastname'];
-
-        $user_email = $row['user_email'];
-        $user_image = $row['user_image'];
-        $user_role = $row['user_role'];
-    }
-}
-?>
-
-<?php
-if(isset($_POST['update_profile'])){
-    $user_firstname =$_POST['user_firstname'];
-    $user_lastname =$_POST['user_lastname'];
-
-    /*$username = $_FILES['image']['name'];
-    $username =  $_FILES['image']['tmp_name'];*/
-
-    $username =$_POST['username'];
-    $user_email =$_POST['user_email'];
-    $user_password =$_POST['user_password'];
-    /* $post_date = date('d, m, y');*/
-
-    /*move_uploaded_file($post_image_temp, "../images/$post_image");*/
-    $query = "UPDATE users SET ";
-    $query .= "user_firstname = '{$user_firstname}', ";
-    $query .= "user_lastname = '{$user_lastname}', ";
-    $query .= "username ='{$username}', ";
-    $query .= "user_password ='{$user_password}' ";
-    $query .= "WHERE username= '{$username}'";
-
-    $edit_user_query= mysqli_query($connection, $query);
-    confirmQuery($edit_user_query);
-
-}
-?>
-
 <div id="wrapper">
     <!-- Navigation -->
 
@@ -60,9 +13,85 @@ if(isset($_POST['update_profile'])){
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Welcome to admin
-                        <small>Author</small>
+                        Profile Section
                     </h1>
+
+                    <?php
+                    if(isset($_SESSION['username'])) {
+                        $username = $_SESSION['username'];
+                        $query= "SELECT * FROM users WHERE username ='{$username}'";
+                        $select_user_profile_query = mysqli_query($connection, $query);
+                        while($row = mysqli_fetch_assoc($select_user_profile_query)){
+                            $user_id = $row['user_id'];
+                            $username = $row['username'];
+                            $user_password = $row['user_password'];
+                            $user_firstname = $row['user_firstname'];
+                            $user_lastname = $row['user_lastname'];
+                            $user_email = $row['user_email'];
+                           // $user_image = $row['user_image'];
+                            //$user_role = $row['user_role'];
+                        }
+
+
+
+                    if(isset($_POST['update_profile'])) {
+                        $user_firstname = $_POST['user_firstname'];
+                        $user_lastname = $_POST['user_lastname'];
+                        //$user_role = $_POST['user_role'];
+
+                        /*$username = $_FILES['image']['name'];
+                        $username =  $_FILES['image']['tmp_name'];*/
+
+                        $username = $_POST['username'];
+                        $user_email = $_POST['user_email'];
+                        $user_password = $_POST['user_password'];
+
+                        /*move_uploaded_file($post_image_temp, "../images/$post_image");*/
+
+                       /* $query = "SELECT userSalt FROM users";
+                        $select_userSalt_query = mysqli_query($connection, $query);
+                        if(!$select_userSalt_query){
+                            die("Query failed" . mysqli_error($connection));
+                        }
+                        $row= mysqli_fetch_array($select_userSalt_query);
+                        $salt = $row['userSalt'];
+                        $hashed_password = crypt($user_password, $salt);*/
+
+                       if(!empty($user_password)) {
+                           $query_password = "SELECT user_password FROM users WHERE user_id = $user_id";
+                           $get_user = mysqli_query($connection, $query_password);
+                           confirmQuery($get_user);
+
+                           $row = mysqli_fetch_array($get_user);
+
+                           $db_user_password = $row['user_password'];
+
+                               if ($db_user_password != $user_password) {
+                                   $hashed_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
+                               }
+
+                           $query = "UPDATE users SET ";
+                           $query .= "user_firstname = '{$user_firstname}', ";
+                           $query .= "user_lastname = '{$user_lastname}', ";
+                           //$query .= "user_role='{$user_role}', ";
+                           $query .= "username ='{$username}', ";
+                           $query .= "user_password ='{$hashed_password}' ";
+                           $query .= "WHERE user_id= {$user_id}";
+
+                           $edit_user_query = mysqli_query($connection, $query);
+                           confirmQuery($edit_user_query);
+
+                           echo "<p class='bg-success'>User updated. <a href='users.php'>View Users</a></p>";
+                       } else { ?>
+                           <p class='bg-danger'>To Edit User Enter Your Password</p>
+                    <?php
+                       }
+                    }
+                    } else {
+                        header("Location: index.php");
+                    }
+                    ?>
+
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="firstname">Firstname</label>
@@ -100,5 +129,4 @@ if(isset($_POST['update_profile'])){
 
     </div>
     <!-- /#page-wrapper -->
-
     <?php include "includes/admin_footer.php"; ?>

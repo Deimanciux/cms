@@ -25,7 +25,7 @@
                     $count = mysqli_num_rows($search_query);
 
                     if ($count == 0) {
-                        echo "<h1> NO RESULT </h1>";
+                        echo "<h1> No search results for '$search'</h1>";
                      }else {
 
                         while ($row = mysqli_fetch_assoc($search_query)) {
@@ -36,8 +36,8 @@
                             $post_content = $row['post_content'];
                             ?>
                             <h1 class="page-header">
-                                Page Heading
-                                <small>Secondary Text</small>
+                               Search results for
+                                <small><?php echo "'" .  $search . "'"; ?></small>
                             </h1>
 
                             <!-- First Blog Post -->

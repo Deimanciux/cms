@@ -3,7 +3,7 @@
 <?php include "admin/functions.php";?>
 
 <?php
-//
+
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $username = trim($_POST['username']);
@@ -97,10 +97,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             </div> <!-- /.row -->
         </div> <!-- /.container -->
     </section>
-
-
-    <hr>
-
-
+<hr>
 
     <?php include "includes/footer.php";?>

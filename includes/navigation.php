@@ -40,20 +40,30 @@
                 }
                 ?>
 
-                <?php if(isset($_SESSION['username'])) { ?>
-                <li>
-                    <a href="/cms/admin">Admin</a>
-                </li>
-                <?php } ?>
-                <?php if(!isset($_SESSION['username'])) { ?>
-
-                <li class="<?php echo $registration_class;?>">
-                    <a href = "/cms/registration">Registration</a>
-                </li>
-                <?php } ?>
                 <li class = "<?php echo $contact_class;?>">
                     <a href = "/cms/contact">Contact</a>
                 </li>
+
+                <?php if(isset($_SESSION['username'])) { ?>
+
+                    <li>
+                        <a href="/cms/admin">Admin</a>
+                    </li>
+                    <li>
+                        <a href="/cms/includes/logout.php">Logout</a>
+                    </li>
+
+                <?php } else {?>
+
+                    <li class="<?php echo $registration_class;?>">
+                        <a href = "/cms/registration">Registration</a>
+                    </li>
+                    <li>
+                        <a href = "/cms/login.php">Login</a>
+                    </li>
+
+                <?php } ?>
+
                 <?php
                 if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin'){
 

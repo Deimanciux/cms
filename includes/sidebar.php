@@ -18,10 +18,18 @@
 
     <!--Login-->
     <?php
+    if(ifItIsMethod('post')) {
+        if(isset($_POST['username']) && isset($_POST['password'])) {
+            login_user($_POST['username'], $_POST['password']);
+        } else {
+            redirect('index');
+        }
+    }
+
     if(!isset($_SESSION['username'])) { ?>
     <div class="well">
         <h4>Login</h4>
-        <form action="includes/login.php" method="POST">
+        <form method="POST">
             <div class="form-group">
                 <input name="username" type="text" class="form-control" placeholder="Enter Username">
             </div>
@@ -30,6 +38,9 @@
             <span class="input-group-btn">
                 <button class="btn btn-primary" name="login" type="submit">Submit</button>
             </span>
+            </div>
+            <div class = "form-group">
+                <a href="forgot_password.php?forgot=<?php echo uniqid(true);?>">Forgot password?</a>
             </div>
         </form>
 

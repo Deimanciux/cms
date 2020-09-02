@@ -15,6 +15,7 @@ while ($row = mysqli_fetch_assoc($select_users_query)) {
     $user_image = $row['user_image'];
     $user_role = $row['user_role'];
 }
+
 if(isset($_POST['edit_user'])) {
     $user_firstname = $_POST['user_firstname'];
     $user_lastname = $_POST['user_lastname'];
@@ -23,9 +24,9 @@ if(isset($_POST['edit_user'])) {
     /*$username = $_FILES['image']['name'];
     $username =  $_FILES['image']['tmp_name'];*/
 
-    $username =$_POST['username'];
-    $user_email =$_POST['user_email'];
-    $user_password =$_POST['user_password'];
+    $username = $_POST['username'];
+    $user_email = $_POST['user_email'];
+    $user_password = $_POST['user_password'];
 
     /*move_uploaded_file($post_image_temp, "../images/$post_image");*/
 
@@ -63,6 +64,9 @@ if(isset($_POST['edit_user'])) {
        confirmQuery($edit_user_query);
 
        echo "<p class='bg-success'>User updated. <a href='users.php'>View Users</a></p>";
+   } else { ?>
+       <p class='bg-danger'>To Edit User Enter Your Password</p>
+<?php
    }
 }
 } else {

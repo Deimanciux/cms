@@ -1,0 +1,12 @@
+{
+    "name": "deimante/cms",
+    "require": {
+        "phpmailer/phpmailer": "^6.1"
+    },
+    "authors": [
+        {
+            "name": "Deimante",
+            "email": "deimante.beniusyte@gmail.com"
+        }
+    ]
+}
