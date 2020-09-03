@@ -9,7 +9,6 @@ use PHPMailer\PHPMailer\Exception;
 
 <?php
 require "./vendor/autoload.php";
-require "./classes/Config.php";
 
 if(!ifItIsMethod('get') && !isset($_GET['forgot'])) {
 
@@ -50,6 +49,7 @@ if(ifItIsMethod('post')) {
                     $mail->Port       = Config::SMTP_PORT;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+                    $mail->CharSet = 'UTF-8';
 
                     //Recipients
                     $mail->setFrom('deimante@kazkas.com', 'Deimante');
@@ -58,22 +58,18 @@ if(ifItIsMethod('post')) {
                     // Content
                     $mail->isHTML(true);                                  // Set email format to HTML
                     $mail->Subject = 'There is a test email';
-                    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+                    $mail->Body    = '<p>Please click to reset your password</p>
+
+                    <a href="http://localhost/cms/reset.php?email='.$email.'&token='.$token.'">http://localhost/cms/reset.php?email='.$email.'&token='.$token.'</a>
+
+                    ';
                     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                     $mail->send();
-                   // echo 'Message has been sent';
+                    $emailSent = true;
                 } catch (Exception $e) {
-                    //echo "Message could not be sent. Mailer Error:";
+                    $emailSent = false;
                 }
-
-
-
-
-
-
-
-
 
             }
         }
@@ -93,6 +89,7 @@ if(ifItIsMethod('post')) {
                     <div class="panel-body">
                         <div class="text-center">
 
+                            <?php if(!isset($emailSent)): ?>
 
                                 <h3><i class="fa fa-lock fa-4x"></i></h3>
                                 <h2 class="text-center">Forgot Password?</h2>
@@ -115,6 +112,9 @@ if(ifItIsMethod('post')) {
                                     </form>
 
                                 </div><!-- Body-->
+                            <?php else: ?>
+                                <h2>Please check your email</h2>
+                            <?php endif?>
 
                         </div>
                     </div>

@@ -5,7 +5,7 @@
 checkIfUserIsLoggedInAndRedirect('/cms/admin');
     if(ifItIsMethod('post')) {
         if(isset($_POST['username']) && isset($_POST['password'])) {
-            login_user($_POST['username'], $_POST['password']);
+           login_user($_POST['username'], $_POST['password']);
         } else {
             redirect('/cms/login.php');
         }
