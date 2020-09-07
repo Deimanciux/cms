@@ -3,7 +3,7 @@
     <!-- Blog Search Well -->
     <div class="well">
         <h4>Blog Search</h4>
-        <form action="search.php" method = "POST">
+        <form action="http://localhost/cms/search.php" method = "POST">
         <div class="input-group">
             <input name="search" type="text" class="form-control">
             <span class="input-group-btn">
@@ -66,7 +66,7 @@
                     while($row = mysqli_fetch_assoc($select_categories_sidebar)){
                     $cat_title =  $row['cat_title'];
                     $cat_id =  $row['cat_id'];
-                    echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
+                    echo "<li><a href= 'http://localhost/cms/category/$cat_id'>{$cat_title}</a></li>";
                     }
                     ?>
                 </ul>

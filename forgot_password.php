@@ -7,6 +7,8 @@ use PHPMailer\PHPMailer\Exception;
 <?php  include "includes/db.php"; ?>
 <?php  include "includes/header.php"; ?>
 
+<!-- Navigation -->
+<?php  include "includes/navigation.php"; ?>
 <?php
 require "./vendor/autoload.php";
 
@@ -52,12 +54,12 @@ if(ifItIsMethod('post')) {
                     $mail->CharSet = 'UTF-8';
 
                     //Recipients
-                    $mail->setFrom('deimante@kazkas.com', 'Deimante');
+                    $mail->setFrom('deimante.professor@gmail.com', 'Deimante');
                     $mail->addAddress($email);     // Add a recipient
 
                     // Content
                     $mail->isHTML(true);                                  // Set email format to HTML
-                    $mail->Subject = 'There is a test email';
+                    $mail->Subject = 'Gabrieliui forgot password';
                     $mail->Body    = '<p>Please click to reset your password</p>
 
                     <a href="http://localhost/cms/reset.php?email='.$email.'&token='.$token.'">http://localhost/cms/reset.php?email='.$email.'&token='.$token.'</a>

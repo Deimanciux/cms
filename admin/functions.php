@@ -1,4 +1,9 @@
 <?php
+function query($query) {
+    global $connection;
+    return mysqli_query($connection, $query);
+}
+
 function imagePlaceholder($image = "") {
     if(!$image) {
         return 'default.jpg';
@@ -29,11 +34,33 @@ function isLoggedIn()
     return false;
 }
 
+function loggedInUserId() {
+    if(isLoggedIn()) {
+        $result = query("SELECT * FROM users WHERE username='" . $_SESSION['username'] . "'");
+        confirmQuery($result);
+        $user = mysqli_fetch_array($result);
+        return mysqli_num_rows($result) >= 1 ? $user['user_id'] : false;
+    }
+    return false;
+}
+
+function userLikedPost($post_id = '') {
+    $result = query("SELECT * FROM likes WHERE user_id=". loggedInUserId() ." AND post_id ={$post_id}");
+    confirmQuery($result);
+    return mysqli_num_rows($result) >= 1 ? true : false;
+}
+
 function checkIfUserIsLoggedInAndRedirect($redirectLocation = null)
 {
     if(isLoggedIn()){
         redirect($redirectLocation);
     }
+}
+
+function getPostLikes($post_id) {
+   $result = query("SELECT * FROM likes WHERE post_id = {$post_id}");
+   confirmQuery($result);
+   echo mysqli_num_rows($result);
 }
 
 function escape($string) {
@@ -102,6 +129,7 @@ function deleteCategories(): void
         header("Location: categories.php");
     }
 }
+
 function usersOnline(): void
 {
     global $connection;
@@ -153,6 +181,7 @@ function checkStatus($table, $column, $status): int
     confirmQuery($result);
     return mysqli_num_rows($result);
 }
+
 function is_admin($username)
 {
     global $connection;
@@ -168,6 +197,7 @@ function is_admin($username)
         return false;
     }
 }
+
 function username_exists($username)
 {
     global $connection;
@@ -199,7 +229,6 @@ function email_exists($email)
         return false;
     }
 }
-
 
 function register_user($username, $email, $password)
 {

@@ -2,23 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="837c9bc6-8b96-4082-9ee5-4e1b4e7cddfd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/cms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cms.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/author_posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/author_posts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forgot_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/forgot_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/post.php" beforeDir="false" afterPath="$PROJECT_DIR$/post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/search.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -148,7 +147,10 @@
       <workItem from="1598946148040" duration="15680000" />
       <workItem from="1599029454489" duration="10580000" />
       <workItem from="1599054311753" duration="9957000" />
-      <workItem from="1599117893683" duration="8355000" />
+      <workItem from="1599117893683" duration="13278000" />
+      <workItem from="1599228808265" duration="13736000" />
+      <workItem from="1599244374978" duration="4000" />
+      <workItem from="1599467350002" duration="5270000" />
     </task>
     <servers />
   </component>
@@ -175,27 +177,25 @@
     <state x="1220" y="276" key="FileChooserDialogImpl" timestamp="1592560078590">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1220" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590494719996" />
     <state x="1220" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592560078590" />
     <state x="790" y="335" key="NewPhpClassDialog" timestamp="1599075017017">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="790" y="335" key="NewPhpClassDialog/0.0.1920.1040/1920.-95.1920.1040@0.0.1920.1040" timestamp="1599075017017" />
-    <state x="1274" y="448" key="NewPhpFileDialog" timestamp="1599077165452">
+    <state x="1274" y="448" key="NewPhpFileDialog" timestamp="1599233709826">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1274" y="448" key="NewPhpFileDialog/0.0.1920.1040/1920.-95.1920.1040@0.0.1920.1040" timestamp="1599077165452" />
+    <state x="1274" y="448" key="NewPhpFileDialog/0.0.1920.1040/1920.-95.1920.1040@0.0.1920.1040" timestamp="1599233709826" />
     <state x="1274" y="448" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598992877721" />
     <state x="922" y="167" key="SettingsEditor" timestamp="1592559730866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="922" y="167" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592559730866" />
-    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1599117893958">
+    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1599467573132">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.-95.1920.1040@0.0.1920.1040" timestamp="1599117893958" />
-    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590494638022" />
-    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599040129449" />
+    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.-95.1920.1040@0.0.1920.1040" timestamp="1599244376456" />
+    <state x="1136" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599467573132" />
     <state x="1053" y="178" width="737" height="804" key="find.popup" timestamp="1592855948715">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -204,9 +204,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1252" y="251" key="ftp.server.browser/0.0.1920.1040@0.0.1920.1040" timestamp="1592908021038" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1599051870654">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1599473490494">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.-95.1920.1040@0.0.1920.1040" timestamp="1599051870654" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.-95.1920.1040@0.0.1920.1040" timestamp="1599473490494" />
   </component>
 </project>

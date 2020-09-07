@@ -29,11 +29,13 @@
                      }else {
 
                         while ($row = mysqli_fetch_assoc($search_query)) {
+                            $post_id = $row['post_id'];
                             $post_title = $row['post_title'];
                             $post_user = $row['post_user'];
                             $post_date = $row['post_date'];
                             $post_image = $row['post_image'];
-                            $post_content = $row['post_content'];
+                            $post_content =  strlen($row['post_content']) >= 100 ?
+                                substr($row['post_content'], 0, 100) . "..." : $row['post_content'];
                             ?>
                             <h1 class="page-header">
                                Search results for
@@ -52,7 +54,7 @@
                             <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
                             <hr>
                             <p><?php echo $post_content; ?></p>
-                            <a class="btn btn-primary" href="#">Read More <span
+                            <a class="btn btn-primary" href="post/<?php echo $post_id; ?>">Read More <span
                                     class="glyphicon glyphicon-chevron-right"></span></a>
 
                             <hr>
